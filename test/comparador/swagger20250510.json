@@ -1,0 +1,497 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Delivery API",
+    "version": "1.0.0",
+    "description": "Documentação da API de delivery. 👉 <a href=\"/swagger.json\" target=\"_blank\">Acesse o swagger.json</a>"
+  },
+  "paths": {
+    "/entregas": {
+      "get": {
+        "summary": "Lista todas as entregas com dados do pedido e entregador",
+        "tags": [
+          "Entrega"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de entregas"
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria uma nova entrega",
+        "tags": [
+          "Entrega"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Entrega criada"
+          }
+        }
+      }
+    },
+    "/entregas/{id}": {
+      "get": {
+        "summary": "Busca uma entrega por ID",
+        "tags": [
+          "Entrega"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID da entrega"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Entrega encontrada"
+          },
+          "404": {
+            "description": "Entrega não encontrada"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza uma entrega existente",
+        "tags": [
+          "Entrega"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entrega atualizada"
+          },
+          "404": {
+            "description": "Entrega não encontrada"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove uma entrega por ID",
+        "tags": [
+          "Entrega"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Entrega removida"
+          },
+          "404": {
+            "description": "Entrega não encontrada"
+          }
+        }
+      }
+    },
+    "/pedidos": {
+      "get": {
+        "summary": "Lista todos os pedidos com dados do cliente e restaurante",
+        "tags": [
+          "Pedido"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de pedidos"
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria um novo pedido",
+        "tags": [
+          "Pedido"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Pedido criado"
+          }
+        }
+      }
+    },
+    "/pedidos/{id}": {
+      "get": {
+        "summary": "Busca um pedido por ID",
+        "tags": [
+          "Pedido"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "ID do pedido"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pedido encontrado"
+          },
+          "404": {
+            "description": "Pedido não encontrado"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um pedido existente",
+        "tags": [
+          "Pedido"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pedido atualizado"
+          },
+          "404": {
+            "description": "Pedido não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove um pedido por ID",
+        "tags": [
+          "Pedido"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Pedido removido"
+          },
+          "404": {
+            "description": "Pedido não encontrado"
+          }
+        }
+      }
+    },
+    "/produtos": {
+      "get": {
+        "summary": "Lista todos os produtos ou filtra por restaurante_id",
+        "tags": [
+          "Produto"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "restaurante_id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do restaurante para filtrar"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de produtos"
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria um novo produto",
+        "tags": [
+          "Produto"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Produto criado"
+          }
+        }
+      }
+    },
+    "/produtos/{id}": {
+      "get": {
+        "summary": "Busca um produto por ID",
+        "tags": [
+          "Produto"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "ID do produto"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto encontrado"
+          },
+          "404": {
+            "description": "Produto não encontrado"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um produto existente",
+        "tags": [
+          "Produto"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Produto atualizado"
+          },
+          "404": {
+            "description": "Produto não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove um produto por ID",
+        "tags": [
+          "Produto"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Produto removido"
+          },
+          "404": {
+            "description": "Produto não encontrado"
+          }
+        }
+      }
+    },
+    "/restaurantes": {
+      "get": {
+        "summary": "Lista todos os restaurantes",
+        "tags": [
+          "Restaurante"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de restaurantes"
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria um novo restaurante",
+        "tags": [
+          "Restaurante"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Restaurante criado com sucesso"
+          }
+        }
+      }
+    },
+    "/restaurantes/{id}": {
+      "get": {
+        "summary": "Busca um restaurante por ID",
+        "tags": [
+          "Restaurante"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Restaurante encontrado"
+          },
+          "404": {
+            "description": "Restaurante não encontrado"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um restaurante existente",
+        "tags": [
+          "Restaurante"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Restaurante atualizado"
+          },
+          "404": {
+            "description": "Restaurante não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove um restaurante por ID",
+        "tags": [
+          "Restaurante"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Restaurante removido com sucesso"
+          },
+          "404": {
+            "description": "Restaurante não encontrado"
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}

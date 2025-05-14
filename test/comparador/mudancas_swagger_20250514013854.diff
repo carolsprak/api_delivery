@@ -1,0 +1,125 @@
+Arquivo 1: swagger20250512.json
+Arquivo 2: swagger20250513.json
+
+Novos endpoints adicionados:
+- /usuarios/{id}
+
+Partes alteradas no arquivo Swagger JSON:
+--- swagger20250512.json	2025-05-14 01:36:33
++++ swagger20250513.json	2025-05-14 00:30:41
+@@ -500,9 +500,114 @@
+         "responses": {
+           "200": {
+             "description": "Lista de usuários"
++          }
++        }
++      },
++      "post": {
++        "summary": "Cria um novo usuário",
++        "tags": [
++          "Usuario"
++        ],
++        "requestBody": {
++          "required": true,
++          "content": {
++            "application/json": {
++              "schema": {
++                "type": "object"
++              }
++            }
+           }
++        },
++        "responses": {
++          "201": {
++            "description": "Usuário criado com sucesso"
++          }
+         }
+       }
++    },
++    "/usuarios/{id}": {
++      "get": {
++        "summary": "Busca um usuário por ID",
++        "tags": [
++          "Usuario"
++        ],
++        "parameters": [
++          {
++            "in": "path",
++            "name": "id",
++            "required": true,
++            "schema": {
++              "type": "integer"
++            }
++          }
++        ],
++        "responses": {
++          "200": {
++            "description": "Usuário encontrado"
++          },
++          "404": {
++            "description": "Usuário não encontrado"
++          }
++        }
++      },
++      "put": {
++        "summary": "Atualiza um usuário existente",
++        "tags": [
++          "Usuario"
++        ],
++        "parameters": [
++          {
++            "in": "path",
++            "name": "id",
++            "required": true,
++            "schema": {
++              "type": "integer"
++            }
++          }
++        ],
++        "requestBody": {
++          "required": true,
++          "content": {
++            "application/json": {
++              "schema": {
++                "type": "object"
++              }
++            }
++          }
++        },
++        "responses": {
++          "200": {
++            "description": "Usuário atualizado"
++          },
++          "404": {
++            "description": "Usuário não encontrado"
++          }
++        }
++      },
++      "delete": {
++        "summary": "Remove um usuário por ID",
++        "tags": [
++          "Usuario"
++        ],
++        "parameters": [
++          {
++            "in": "path",
++            "name": "id",
++            "required": true,
++            "schema": {
++              "type": "integer"
++            }
++          }
++        ],
++        "responses": {
++          "204": {
++            "description": "Usuário removido com sucesso"
++          },
++          "404": {
++            "description": "Usuário não encontrado"
++          }
++        }
++      }
+     }
+   },
+   "components": {},
+\ No newline at end of file

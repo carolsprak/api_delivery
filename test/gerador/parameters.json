@@ -1,0 +1,93 @@
+{
+  "/entregas": {
+    "post": {
+      "body": {
+        "Pedido_ID": 1,
+        "Entregador_ID": 1,
+        "Status": "Aguardando",
+        "Data_Entrega": "2025-05-13T12:00:00Z"
+      }
+    }
+  },
+  "/entregas/{id}": {
+    "put": {
+      "body": {
+        "Status": "Em rota",
+        "Data_Entrega": "2025-05-13T15:30:00Z"
+      }
+    }
+  },
+  "/pedidos": {
+    "post": {
+      "body": {
+        "Usuario_ID": 1,
+        "Restaurante_ID": 1,
+        "Status": "Pendente",
+        "Data_Pedido": "2025-05-13T11:00:00Z"
+      }
+    }
+  },
+  "/pedidos/{id}": {
+    "put": {
+      "body": {
+        "Status": "Preparando"
+      }
+    }
+  },
+  "/produtos": {
+    "post": {
+      "body": {
+        "Nome": "Pizza de Calabresa",
+        "Descricao": "Deliciosa pizza com calabresa",
+        "Preco": 39.90,
+        "Restaurante_ID": 1
+      }
+    }
+  },
+  "/produtos/{id}": {
+    "put": {
+      "body": {
+        "Nome": "Pizza de Frango com Catupiry",
+        "Preco": 42.00
+      }
+    }
+  },
+  "/restaurantes": {
+    "post": {
+      "body": {
+        "Nome": "Pizzaria Central",
+        "Endereco": "Rua das Oliveiras, 123",
+        "Telefone": "(83) 99999-0001"
+      }
+    }
+  },
+  "/restaurantes/{id}": {
+    "put": {
+      "body": {
+        "Nome": "Pizzaria Atualizada"
+      }
+    }
+  },
+  "/usuarios": {
+    "post": {
+      "body": { 
+        "Nome": "Carlos Motoboy",
+        "Nome_usuario": "carlosbike",
+        "Senha": "entrega123",
+        "CPF": "98765432100",
+        "Email": "carlos@email.com",
+        "Data_Nascimento": "1985-08-10T00:00:00.000Z",
+        "Endereco": "Rua da Entrega, 45",
+        "Perfil": "Entregador"
+      }
+    }
+  },
+  "/usuarios/{id}": {
+    "put": {
+      "body": {
+        "Nome": "João Atualizado",
+        "Email": "joao.atualizado@email.com"
+      }
+    }
+  }
+}
