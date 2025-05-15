@@ -7,7 +7,7 @@
     "test":  "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anne Caroline Rocha",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
